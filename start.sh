@@ -3,7 +3,7 @@
 set -e
 
 if [ -f /configured ]; then
-  exit 0
+  exec /usr/bin/supervisord
 fi
 
 sed 's/;daemonize = yes/daemonize = no/' -i /etc/php5/fpm/php-fpm.conf

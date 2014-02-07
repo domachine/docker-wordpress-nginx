@@ -20,5 +20,6 @@ RUN mkdir -p /var/www
 RUN wget -nv 'http://de.wordpress.org/wordpress-3.8.1-de_DE.zip' -O /var/www/wordpress.zip
 RUN cd /var/www && unzip -q wordpress.zip && rm wordpress.zip && chown www-data:www-data -R wordpress
 ADD start.sh /start
+ENV TZ Europe/Berlin
 EXPOSE 22 80
 CMD ["/bin/bash", "/start"]

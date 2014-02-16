@@ -1,10 +1,8 @@
 FROM ubuntu:quantal
 MAINTAINER dominik.burgdoerfer@gmail.com
 
-RUN dpkg-divert --local --rename --add /sbin/initctl
-RUN ln -s /bin/true /sbin/initctl
-RUN echo "deb http://archive.ubuntu.com/ubuntu quantal main universe" >/etc/apt/sources.list
 RUN apt-get update
+RUN DEBIAN_FRONTEND=noninteractive apt-get upgrade -y
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y -q openssh-server \
     nginx \
     mysql-server \
